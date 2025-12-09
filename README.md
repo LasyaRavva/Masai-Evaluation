@@ -6,9 +6,9 @@ A modern, responsive web application for tracking daily activities in minutes an
 
 ## 🌟 Live Demo & Links
 
-- **Live Demo**: [https://your-username.github.io/time-tracking-dashboard](https://your-username.github.io/time-tracking-dashboard)
-- **GitHub Repository**: [https://github.com/your-username/time-tracking-dashboard](https://github.com/your-username/time-tracking-dashboard)
-- **Video Walkthrough**: [https://youtu.be/your-video-id](https://youtu.be/your-video-id) (2-5 minutes)
+- **Live Demo**: [https://LasyaRavva.github.io/Masai-Evaluation](https://LasyaRavva.github.io/Masai-Evaluation)
+- **GitHub Repository**: [https://github.com/LasyaRavva/Masai-Evaluation](https://github.com/LasyaRavva/Masai-Evaluation)
+- **Video Walkthrough**: [https://docs.google.com/videos/d/1nO6TbnHKPutDo2BBtgagThvupuNOT79J1TyeYBmzvgQ/edit?usp=sharing](https://docs.google.com/videos/d/1nO6TbnHKPutDo2BBtgagThvupuNOT79J1TyeYBmzvgQ/edit?usp=sharing) (2-5 minutes)
 
 ---
 
@@ -175,7 +175,7 @@ users/
 ### Step 1: Clone or Download Repository
 
 ```bash
-git clone https://github.com/your-username/time-tracking-dashboard.git
+git clone https://github.com/LasyaRavva/Masai-Evaluation.git
 cd time-tracking-dashboard
 ```
 
@@ -491,7 +491,7 @@ git push -u origin main
 2. Settings → Pages
 3. Select "main" branch as source
 4. Save
-5. Your site is live at: `https://your-username.github.io/time-tracking-dashboard`
+5. Your site is live at: `https://LasyaRavva.github.io/Masai-Evaluation`
 
 ### Step 5: Add Authorized Domain to Firebase
 1. In Firebase Console, go to **Authentication** → **Settings**
@@ -617,32 +617,6 @@ git push -u origin main
 
 ---
 
-## 📈 Project Statistics
-
-### Code Metrics
-- **HTML**: ~180 lines (semantic, clean structure)
-- **CSS**: ~650 lines (responsive, dark theme, no comments)
-- **JavaScript**: ~540 lines (clean, optimized)
-- **Total Code**: ~1370 lines
-
-### Documentation
-- **This README**: ~2000 lines (comprehensive)
-- **Included guides**: Setup, troubleshooting, features
-
-### Performance
-- **App Size**: ~56 KB (uncompressed)
-- **Load Time**: ~2 seconds
-- **Browser Support**: All modern browsers
-- **Mobile Support**: iOS, Android
-
-### Features
-- **Authentication Methods**: 2 (Email + Google)
-- **Categories**: 8 (Work, Study, Sleep, Exercise, Entertainment, Meals, Personal, Other)
-- **Responsive Breakpoints**: 3 (Mobile, Tablet, Desktop)
-- **Data Visualizations**: 1 (Pie chart, extensible)
-
----
-
 ## 🔮 Future Improvements
 
 ### Advanced Features
@@ -751,11 +725,11 @@ Your **Time Tracking & Analytics Dashboard** is complete and ready to deploy!
 
 ---
 
-*For the live demo, visit: [Your GitHub Pages Link]*
+*For the live demo, visit: https://LasyaRavva.github.io/Masai-Evaluation/
 
-*For the source code, visit: [Your GitHub Repository Link]*
+*For the source code, visit:https://github.com/LasyaRavva/Masai-Evaluation
 
-*For video walkthrough, visit: [Your YouTube Link]*
+*For video walkthrough, visit: https://docs.google.com/videos/d/1nO6TbnHKPutDo2BBtgagThvupuNOT79J1TyeYBmzvgQ/edit?usp=sharing
 
 ![Sign page Screenshot](image.png)
 ![Dashboard Screenshot](image2.png)
