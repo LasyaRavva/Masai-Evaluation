@@ -756,3 +756,7 @@ Your **Time Tracking & Analytics Dashboard** is complete and ready to deploy!
 *For the source code, visit: [Your GitHub Repository Link]*
 
 *For video walkthrough, visit: [Your YouTube Link]*
+
+![Sign page Screenshot](image.png)
+![Dashboard Screenshot](image2.png)
+
