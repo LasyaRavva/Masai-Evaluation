@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracking & Analytics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <section id="authPage" class="active">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>⏰ Time Tracker</h1>
+                    <p>Track your daily activities and analyze your time</p>
+                </div>
+                
+                <div id="loginForm" class="auth-form">
+                    <h2>Welcome Back</h2>
+                    <form id="signInForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </form>
+                    <p class="auth-toggle">Don't have an account? <a href="#">Sign Up</a></p>
+                </div>
+
+                <div id="signupForm" class="auth-form hidden">
+                    <h2>Create Your Account</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupConfirm">Confirm Password</label>
+                            <input type="password" id="signupConfirm" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                    <p class="auth-toggle">Already have an account? <a href="#">Sign In</a></p>
+                </div>
+
+                <div id="googleAuthBtn" class="google-btn-container">
+                    <button id="googleSignInBtn" class="btn btn-google">
+                        <span class="google-icon">🔐</span> Sign in with Google
+                    </button>
+                </div>
+
+                <div id="authError" class="alert alert-error hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="appPage">
+        <header class="header">
+            <div class="header-content">
+                <h1>⏰ Time Tracking Dashboard</h1>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <div class="left-panel">
+                <div class="card activity-logger">
+                    <h2>Log Your Activities</h2>
+                    
+                    <div class="date-picker-group">
+                        <label for="activityDate">Select Date</label>
+                        <input type="date" id="activityDate" class="date-input">
+                    </div>
+
+                    <div class="time-remaining">
+                        <div class="remaining-display">
+                            <span id="remainingMinutes" class="minutes">1440</span>
+                            <span class="label">minutes remaining</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="usedProgress" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <form id="activityForm" class="activity-form">
+                        <div class="form-group">
+                            <label for="activityName">Activity Name</label>
+                            <input type="text" id="activityName" placeholder="e.g., Morning Run" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activityCategory">Category</label>
+                            <select id="activityCategory" required>
+                                <option value="Work">Work</option>
+                                <option value="Study">Study</option>
+                                <option value="Sleep">Sleep</option>
+                                <option value="Exercise">Exercise</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Meals">Meals</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activityDuration">Duration (minutes)</label>
+                            <input type="number" id="activityDuration" min="1" max="1440" placeholder="30" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Add Activity</button>
+                    </form>
+
+                    <div id="formError" class="alert alert-error hidden"></div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="card activities-list">
+                    <h2>Today's Activities</h2>
+                    <div id="activitiesList" class="activities-container">
+                        <p class="empty-state">No activities logged yet. Start by adding an activity!</p>
+                    </div>
+                </div>
+
+                <div id="analyseButtonContainer" class="analyse-button-container hidden">
+                    <button id="analyseBtn" class="btn btn-success btn-large">Analyse</button>
+                </div>
+
+                <div id="dashboardSection" class="card dashboard-section hidden">
+                    <div class="dashboard-header">
+                        <h2>Analytics Dashboard</h2>
+                        <button id="closeDashboard" class="btn btn-close">✕</button>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="stat-box">
+                            <h3>Total Hours</h3>
+                            <p id="totalHours" class="stat-value">0h</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Activities</h3>
+                            <p id="totalActivities" class="stat-value">0</p>
+                        </div>
+                    </div>
+
+                    <div class="charts-container">
+                        <div class="chart-wrapper">
+                            <h3>Time Per Category</h3>
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div id="noDataView" class="no-data-view hidden">
+                        <div class="no-data-content">
+                            <div class="no-data-icon">📅</div>
+                            <h2>No Data Available</h2>
+                            <p>There are no activities logged for the selected date.</p>
+                            <p class="no-data-subtitle">Start logging your day now to see insights!</p>
+                            <button class="btn btn-primary" onclick="document.getElementById('closeDashboard').click()">Back to Logging</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
